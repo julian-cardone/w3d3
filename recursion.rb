@@ -47,16 +47,16 @@ end
     
     end
     
-    robot_parts = [
-        ["nuts", "bolts", "washers"],
-        ["capacitors", "resistors", "inductors"]
-      ]
-      p deep_dup(robot_parts)
+#     robot_parts = [
+#         ["nuts", "bolts", "washers"],
+#         ["capacitors", "resistors", "inductors"]
+#       ]
+#       p deep_dup(robot_parts)
 
-p deep_dup(robot_parts = [
-    ["nuts", "bolts", "washers"],
-    ["capacitors", "resistors", "inductors"]
-  ])
+# p deep_dup(robot_parts = [
+#     ["nuts", "bolts", "washers"],
+#     ["capacitors", "resistors", "inductors"]
+#   ])
 
   def fib_i(n)
 
@@ -126,23 +126,33 @@ def merge_sort(arr)
     left_side = merge_sort(arr[0...middle_indx])
     right_side = merge_sort(arr[middle_indx..-1])
 
-    left_sorted = helper(left_side)
-    right_sorted = helper(right_side)
-
+    left_sorted = left_side.sort
+    right_sorted = right_side.sort
+    helper(left_sorted, right_sorted)
 end
 
-def helper(array)
+def helper(arr1, arr2)
+ return arr1 if arr2.empty?
+ return arr2 if arr1.empty?
 
-    array.length
+    new_array=[]
+     if arr1.first <= arr2.first
+        new_array<< arr1.shift
+     else
+        new_array<< arr2.shift
+     end
 
+     recursion= helper(arr1, arr2)
+     new_array.concat(recursion)
 end
 
-def permutations(arr)
+p merge_sort([38,27,43,3,9,82,10])
+# def permutations(arr)
 
-    return arr if arr.length < 2
+#     return arr if arr.length < 2
 
-    new_arr = []
+#     new_arr = []
 
 
-end
+# end
 
