@@ -33,7 +33,7 @@ end
 
 
     def deep_dup(arr)
-        return  []if !arr.is_a? (Array)
+        return [] if !arr.is_a? (Array)
     
         new_array=[]
         arr.each do |ele|
@@ -43,7 +43,7 @@ end
             new_array<< deep_dup(ele)
             end
         end
-        new_array
+        return new_array
     
     end
     
@@ -116,3 +116,33 @@ p deep_dup(robot_parts = [
 #         (idx...@arr.length).each do |idx2|
 #             arr[idx..idx2]
 # end
+
+def merge_sort(arr)
+
+    return arr if arr.length == 1 || arr.length == 0
+
+    middle_indx = arr.length / 2
+
+    left_side = merge_sort(arr[0...middle_indx])
+    right_side = merge_sort(arr[middle_indx..-1])
+
+    left_sorted = helper(left_side)
+    right_sorted = helper(right_side)
+
+end
+
+def helper(array)
+
+    array.length
+
+end
+
+def permutations(arr)
+
+    return arr if arr.length < 2
+
+    new_arr = []
+
+
+end
+
