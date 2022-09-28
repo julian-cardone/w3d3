@@ -30,5 +30,20 @@ end
 
 p expo2(2, 3)
 
-def deep_dup
+
+
+def deep_dup(arr)
+    return [] if !arr.is_a? (Array)
+
+    new_array=[]
+    arr.each do |ele|
+        new_array<< deep_dup(ele)
+    end
+    new_array
+
 end
+
+p deep_dup(robot_parts = [
+    ["nuts", "bolts", "washers"],
+    ["capacitors", "resistors", "inductors"]
+  ])
