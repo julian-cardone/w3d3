@@ -21,7 +21,11 @@ end
 
 def expo2(b, n)
     return 1 if n == 0
-    
+    if n.even?
+        expo2(b, n/2) ** 2
+    else
+        b * (expo2(b, (n - 1) / 2) ** 2)
+    end
 end
 
-#p expo1(2, 2)
+p expo2(2, 3)
