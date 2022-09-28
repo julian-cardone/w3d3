@@ -29,3 +29,6 @@ def expo2(b, n)
 end
 
 p expo2(2, 3)
+
+def deep_dup
+end
