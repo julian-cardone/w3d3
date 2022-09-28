@@ -30,25 +30,33 @@ end
 
 #p expo2(2, 3)
 
-# class Array
 
-#     def deep_dup(new_word)
-#         return [] if !self.is_a? (Array)
+
+    def deep_dup(arr)
+        return  []if !arr.is_a? (Array)
     
-#         new_array=[]
-#         self.each do |ele|
-#             new_array<< deep_dup(ele)
-#         end
-#         new_array
+        new_array=[]
+        arr.each do |ele|
+            if !ele.is_a?(Array)
+                new_array<<ele
+            else
+            new_array<< deep_dup(ele)
+            end
+        end
+        new_array
     
-#     end
+    end
+    
+    robot_parts = [
+        ["nuts", "bolts", "washers"],
+        ["capacitors", "resistors", "inductors"]
+      ]
+      p deep_dup(robot_parts)
 
-# end
-
-# p deep_dup(robot_parts = [
-#     ["nuts", "bolts", "washers"],
-#     ["capacitors", "resistors", "inductors"]
-#   ])
+p deep_dup(robot_parts = [
+    ["nuts", "bolts", "washers"],
+    ["capacitors", "resistors", "inductors"]
+  ])
 
   def fib_i(n)
 
@@ -75,3 +83,36 @@ end
   end
 
   # p fib_r(4)
+
+
+  def binary(arr, n)
+    return nil if arr.empty?
+    
+    
+    middle_indx= arr.length/2
+
+    if arr[middle_indx]==n
+        return middle_indx
+    
+    elsif arr[middle_indx]>n
+        binary(arr.take(middle_indx),n)
+    
+    elsif arr[middle_indx]<n
+        binary(arr[middle_indx..-1],n)
+    end
+  end
+
+#   p binary([2, 3, 4, 5], 3)
+
+# def merge_sort(arr)
+
+
+
+# end
+
+
+# def subset(arr)
+#     (0...@arr.length).each do |idx|
+#         (idx...@arr.length).each do |idx2|
+#             arr[idx..idx2]
+# end
